@@ -7,23 +7,15 @@ Authored by: Armando Miani
 Licensed under CDDL 1.0
 '''
 
-import sys
 import unittest
 import doctest
-
-
-class MyTest(unittest.TestCase):
-    def test(self):
-        self.assertEqual(1, 2)
+import matrixsdk.api
 
 
 def getTestSuite():
-    suite = unittest.TestSuite()
-    suite.addTest(unittest.makeSuite(MyTest))
-
-    # suite.addTest(doctest.DocTestSuite(class))
-
-    return suite
+	suite = unittest.TestSuite()
+	suite.addTest(doctest.DocTestSuite(matrixsdk.api))
+	return suite
 
 runner = unittest.TextTestRunner()
 runner.run(getTestSuite())
